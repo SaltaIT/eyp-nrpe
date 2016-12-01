@@ -3,6 +3,8 @@ class nrpe::params {
   $package_name='nrpe'
   $service_name='nrpe'
 
+  $nrpe_conf='/etc/nagios/nrpe.cfg'
+
   case $::osfamily
   {
     'redhat':
