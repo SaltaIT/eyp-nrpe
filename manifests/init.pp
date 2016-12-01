@@ -16,6 +16,7 @@ class nrpe(
                             $command_prefix                  = undef,
                             $nrped_purge                     = true,
                             $nrped_recurse                   = true,
+                            $server_address                  = undef,
                           ) inherits nrpe::params{
 
   validate_re($package_ensure, [ '^present$', '^installed$', '^absent$', '^purged$', '^held$', '^latest$' ], 'Not a supported package_ensure: present/absent/purged/held/latest')

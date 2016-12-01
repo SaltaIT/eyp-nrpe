@@ -24,12 +24,14 @@ pid_file=/var/run/nrpe/nrpe.pid
 
 server_port=5666
 
+<% if defined?(@server_address) -%>
 # SERVER ADDRESS
 # Address that nrpe should bind to in case there are more than one interface
 # and you do not want nrpe to bind on all interfaces.
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-#server_address=127.0.0.1
+server_address=<%= @server_address %>
+<% end -%>
 
 # NRPE USER
 # This determines the effective user that the NRPE daemon should run as.
