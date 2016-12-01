@@ -5,7 +5,7 @@ class nrpe(
                             $manage_docker_service           = true,
                             $service_ensure                  = 'running',
                             $service_enable                  = true,
-                            #nrpe variables
+                            # nrpe variables
                             $dont_blame_nrpe                 = false,
                             $allow_bash_command_substitution = false,
                             $debug                           = false,
