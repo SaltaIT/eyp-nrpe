@@ -15,14 +15,14 @@ log_facility=daemon
 # number.  The file is only written if the NRPE daemon is started by the root
 # user and is running in standalone mode.
 
-pid_file=/var/run/nrpe/nrpe.pid
+pid_file=<%= scope.lookupvar('nrpe::params::pid_file') %>
 
 # PORT NUMBER
 # Port number we should wait for connections on.
 # NOTE: This must be a non-priviledged port (i.e. > 1024).
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-server_port=5666
+server_port=<%= @server_port %>
 
 <% if defined?(@server_address) -%>
 # SERVER ADDRESS

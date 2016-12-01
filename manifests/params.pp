@@ -1,8 +1,7 @@
 class nrpe::params {
 
   $nrpe_conf='/etc/nagios/nrpe.cfg'
-
-
+  $pid_file='/var/run/nrpe/nrpe.pid'
 
   case $::osfamily
   {
