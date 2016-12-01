@@ -1,13 +1,13 @@
 class nrpe::params {
 
-  $service_name='nrpe'
-
   $nrpe_conf='/etc/nagios/nrpe.cfg'
 
   case $::osfamily
   {
     'redhat':
     {
+      $service_name='nrpe'
+
       $include_epel=true
 
       $package_name='nrpe'
@@ -24,6 +24,8 @@ class nrpe::params {
     }
     'Debian':
     {
+      $service_name='nagios-nrpe-server'
+
       $include_epel=false
 
       $package_name='nagios-nrpe-server'
