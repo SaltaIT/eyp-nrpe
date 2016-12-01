@@ -1,3 +1,12 @@
+#
+# nrpe.cfg concat
+#
+# 00 base
+# 50 command base
+# 51 command
+# 90 include base
+# 99 include
+#
 class nrpe(
                             $manage_package                  = true,
                             $package_ensure                  = 'installed',

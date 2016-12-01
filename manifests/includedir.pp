@@ -11,7 +11,7 @@ define nrpe::includedir (
   Exec {
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
   }
-  
+
   validate_absolute_path($dir)
 
   if($createdir)
@@ -34,7 +34,7 @@ define nrpe::includedir (
 
   concat::fragment { "nrpe.cfg includedir ${dir}":
     target  => $nrpe::params::nrpe_conf,
-    order   => '99',
+    order   => '50',
     content => "include_dir=${dir}\n",
   }
 

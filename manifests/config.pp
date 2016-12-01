@@ -17,6 +17,18 @@ class nrpe::config inherits nrpe {
     content => template("${module_name}/nrpecfg.erb"),
   }
 
+  concat::fragment { 'nrpe.cfg command base':
+    target  => $nrpe::params::nrpe_conf,
+    order   => '50',
+    content => template("${module_name}/command_base.erb"),
+  }
+
+  concat::fragment { 'nrpe.cfg include base':
+    target  => $nrpe::params::nrpe_conf,
+    order   => '90',
+    content => template("${module_name}/include_base.erb"),
+  }
+
   exec { "mkdir p nrpe ${nrpe::params::nrpe_conf_dir}":
     command => "mkdir -p ${nrpe::params::nrpe_conf_dir}",
     creates => $nrpe::params::nrpe_conf_dir,
