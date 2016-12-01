@@ -12,6 +12,11 @@ define nrpe::includedir (
 
   if($createdir)
   {
+    exec { "mkdir p nrpe ${dir}":
+      command => "mkdir -p ${dir}",
+      creates => $dir,
+    }
+
     file { $dir:
       ensure  => 'directory',
       owner   => $owner,
@@ -19,6 +24,7 @@ define nrpe::includedir (
       mode    => $mode,
       recurse => $recurse
       purge   => $purge,
+      require => Exec["mkdir p nrpe ${dir}"],
     }
   }
 
