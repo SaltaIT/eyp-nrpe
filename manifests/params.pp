@@ -30,7 +30,7 @@ class nrpe::params {
 
       $package_name='nagios-nrpe-server'
 
-      $plugins_package_name='nagios-nrpe-plugin'
+      $plugins_package_name='nagios-plugins-basic'
 
       case $::operatingsystem
       {
