@@ -10,6 +10,13 @@ class nrpe::install inherits nrpe {
     package { $nrpe::params::package_name:
       ensure => $nrpe::package_ensure,
     }
+
+    if($nrpe::install_plugins)
+    {
+      package { $nrpe::params::plugins_package_name:
+        ensure => $nrpe::package_ensure,
+      }
+    }
   }
 
 }

@@ -10,6 +10,8 @@ class nrpe::params {
     'redhat':
     {
       $include_epel=true
+
+      $plugins_package_name='nagios-plugins-nrpe'
       case $::operatingsystemrelease
       {
         /^[5-7].*$/:
@@ -21,6 +23,8 @@ class nrpe::params {
     'Debian':
     {
       $include_epel=false
+
+      $plugins_package_name='nagios-nrpe-plugin'
       case $::operatingsystem
       {
         'Ubuntu':
