@@ -1,5 +1,9 @@
 class nrpe::config inherits nrpe {
 
+  Exec {
+    path => '/bin:/sbin:/usr/bin:/usr/sbin',
+  }
+
   concat { $nrpe::params::nrpe_conf:
     ensure  => 'present',
     owner   => 'root',

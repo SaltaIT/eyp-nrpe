@@ -8,6 +8,10 @@ define nrpe::includedir (
                           $purge     = false,
                         ) {
   #
+  Exec {
+    path => '/bin:/sbin:/usr/bin:/usr/sbin',
+  }
+  
   validate_absolute_path($dir)
 
   if($createdir)
