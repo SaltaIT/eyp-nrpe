@@ -13,6 +13,7 @@ class nrpe(
                             $allow_weak_random_seed          = false,
                             $install_plugins                 = true,
                             $allowed_hosts                   = [ '127.0.0.1' ],
+                            $command_prefix                  = undef,
                           ) inherits nrpe::params{
 
   validate_re($package_ensure, [ '^present$', '^installed$', '^absent$', '^purged$', '^held$', '^latest$' ], 'Not a supported package_ensure: present/absent/purged/held/latest')

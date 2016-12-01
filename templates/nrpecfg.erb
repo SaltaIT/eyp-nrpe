@@ -97,8 +97,7 @@ dont_blame_nrpe=<%= scope.function_bool2number([@dont_blame_nrpe]) %>
 
 allow_bash_command_substitution=<%= scope.function_bool2number([@allow_bash_command_substitution]) %>
 
-
-
+<% if defined?(@command_prefix) -%>
 # COMMAND PREFIX
 # This option allows you to prefix all commands with a user-defined string.
 # A space is automatically added between the specified prefix string and the
@@ -116,8 +115,8 @@ allow_bash_command_substitution=<%= scope.function_bool2number([@allow_bash_comm
 # without asking for a password.  If you do this, make sure you don't give
 # random users write access to that directory or its contents!
 
-# command_prefix=/usr/bin/sudo
-
+command_prefix=<%= @command_prefix %>
+<% end -%>
 
 
 # DEBUGGING OPTION
