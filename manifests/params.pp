@@ -13,6 +13,8 @@ class nrpe::params {
       $package_name='nrpe'
       $plugins_package_name='nagios-plugins-nrpe'
       $nrpe_conf_dir='/etc/nrpe.d'
+      $username='nrpe'
+      $group='nrpe'
 
       case $::operatingsystemrelease
       {
@@ -29,6 +31,8 @@ class nrpe::params {
       $package_name='nagios-nrpe-server'
       $plugins_package_name='nagios-plugins-basic'
       $nrpe_conf_dir='/etc/nagios/nrpe.d'
+      $username='nagios'
+      $group='nagios'
 
       case $::operatingsystem
       {

@@ -37,7 +37,7 @@ server_port=5666
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-nrpe_user=nrpe
+nrpe_user=<%= scope.lookupvar('nrpe::params::username') %>
 
 # NRPE GROUP
 # This determines the effective group that the NRPE daemon should run as.
@@ -45,7 +45,7 @@ nrpe_user=nrpe
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-nrpe_group=nrpe
+nrpe_group=<%= scope.lookupvar('nrpe::params::group') %>
 
 
 
