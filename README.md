@@ -59,10 +59,21 @@ the fancy stuff with your module here.
 
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+### nrpe
+
+ * **dont_blame_nrpe**                 = false
+ * **allow_bash_command_substitution** = false
+ * **debug**                           = false
+ * **command_timeout**                 = '60'
+ * **connection_timeout**              = '300'
+ * **allow_weak_random_seed**          = false
+ * **install_plugins**                 = true
+ * **allowed_hosts**                   = [ '127.0.0.1' ]
+ * **command_prefix**                  = undef
+ * **nrped_purge**                     = true
+ * **nrped_recurse**                   = true
+ * **server_address**                  = undef
+ * **server_port**                     = '5666'
 
 ## Limitations
 
