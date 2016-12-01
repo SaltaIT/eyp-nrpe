@@ -7,6 +7,7 @@ class nrpe::params {
   {
     'redhat':
     {
+      $include_epel=true
       case $::operatingsystemrelease
       {
         /^[5-7].*$/:
@@ -17,6 +18,7 @@ class nrpe::params {
     }
     'Debian':
     {
+      $include_epel=false
       case $::operatingsystem
       {
         'Ubuntu':
