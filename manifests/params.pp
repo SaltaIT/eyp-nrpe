@@ -1,6 +1,5 @@
 class nrpe::params {
 
-  $package_name='nrpe'
   $service_name='nrpe'
 
   $nrpe_conf='/etc/nagios/nrpe.cfg'
@@ -11,7 +10,10 @@ class nrpe::params {
     {
       $include_epel=true
 
+      $package_name='nrpe'
+
       $plugins_package_name='nagios-plugins-nrpe'
+
       case $::operatingsystemrelease
       {
         /^[5-7].*$/:
@@ -24,7 +26,10 @@ class nrpe::params {
     {
       $include_epel=false
 
+      $package_name='nagios-nrpe-server'
+
       $plugins_package_name='nagios-nrpe-plugin'
+
       case $::operatingsystem
       {
         'Ubuntu':
