@@ -9,7 +9,7 @@ define nrpe::command(
   concat::fragment { "nrpe.cfg command ${command}":
     target  => $nrpe::params::nrpe_conf,
     order   => '51',
-    content => "include_dir=${dir}\n",
+    content => template("${module_name}/command.erb")
   }
 
 }
