@@ -34,7 +34,7 @@ define nrpe::includedir (
 
   concat::fragment { "nrpe.cfg includedir ${dir}":
     target  => $nrpe::params::nrpe_conf,
-    order   => '50',
+    order   => '99',
     content => "include_dir=${dir}\n",
   }
 

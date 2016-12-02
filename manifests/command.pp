@@ -1,10 +1,15 @@
 define nrpe::command(
                       $command,
-                      $commandname=$name
+                      $commandname = $name,
+                      $comment     = undef,
                     ) {
 
   # command[check_plugin_custom]=$ARG1$
 
-  # order 51
+  concat::fragment { "nrpe.cfg command ${command}":
+    target  => $nrpe::params::nrpe_conf,
+    order   => '51',
+    content => "include_dir=${dir}\n",
+  }
 
 }
