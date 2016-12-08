@@ -6,7 +6,7 @@ class nrpe::install inherits nrpe {
     {
       include ::epel
 
-      Package[$nrpe::params::package_name] = {
+      Package[$nrpe::params::package_name] {
         require => Class['::epel'],
       }
     }
