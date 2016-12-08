@@ -26,7 +26,7 @@ define nrpe::includedir (
       owner   => $owner,
       group   => $group,
       mode    => $mode,
-      recurse => $recurse
+      recurse => $recurse,
       purge   => $purge,
       require => Exec["mkdir p nrpe ${dir}"],
     }
