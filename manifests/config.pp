@@ -5,10 +5,10 @@ class nrpe::config inherits nrpe {
   }
 
   concat { $nrpe::params::nrpe_conf:
-    ensure  => 'present',
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
+    ensure => 'present',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
   }
 
   concat::fragment { 'nrpe.cfg base':
