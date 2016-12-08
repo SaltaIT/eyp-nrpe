@@ -2,7 +2,7 @@
   "name": "eyp-nrpe",
   "version": "0.1.0",
   "author": "eyp",
-  "summary": null,
+  "summary": "NRPE management",
   "license": "Apache-2.0",
   "source": "https://github.com/NTTCom-MS/eyp-nrpe",
   "project_page": null,
@@ -40,11 +40,11 @@
   "requirements": [
     {
       "name": "pe",
-      "version_requirement": ">= 3.0.0"
+      "version_requirement": ">= 3.8.0"
     },
     {
       "name": "puppet",
-      "version_requirement": ">= 3.0.0"
+      "version_requirement": ">= 3.8.0"
     }
   ]
 }
