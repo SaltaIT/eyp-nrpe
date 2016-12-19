@@ -29,19 +29,19 @@ class nrpe::config inherits nrpe {
     content => template("${module_name}/include_base.erb"),
   }
 
-  exec { "mkdir p nrpe ${nrpe::params::nrpe_conf_dir}":
-    command => "mkdir -p ${nrpe::params::nrpe_conf_dir}",
-    creates => $nrpe::params::nrpe_conf_dir,
+  exec { "mkdir p nrpe ${nrpe::nrpe_conf_dir}":
+    command => "mkdir -p ${nrpe::nrpe_conf_dir}",
+    creates => $nrpe::nrpe_conf_dir,
   }
 
-  file { $nrpe::params::nrpe_conf_dir:
+  file { $nrpe::nrpe_conf_dir:
     ensure  => 'directory',
     owner   => 'root',
     group   => 'root',
     mode    => '0755',
     recurse => $nrpe::nrped_recurse,
     purge   => $nrpe::nrped_purge,
-    require => Exec["mkdir p nrpe ${nrpe::params::nrpe_conf_dir}"],
+    require => Exec["mkdir p nrpe ${nrpe::nrpe_conf_dir}"],
   }
 
 }
