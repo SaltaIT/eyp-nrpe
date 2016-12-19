@@ -39,8 +39,8 @@ class nrpe::config inherits nrpe {
     owner   => 'root',
     group   => 'root',
     mode    => '0755',
-    recurse => $nrpe::nrped_recurse,
-    purge   => $nrpe::nrped_purge,
+    recurse => $nrpe::nrpe_conf_recurse,
+    purge   => $nrpe::nrpe_conf_purge,
     require => Exec["mkdir p nrpe ${nrpe::nrpe_conf_dir}"],
   }
 
