@@ -19,6 +19,7 @@ define nrpe::includedir (
     exec { "mkdir p nrpe ${dir}":
       command => "mkdir -p ${dir}",
       creates => $dir,
+      require => Class['nrpe'],
     }
 
     file { $dir:
