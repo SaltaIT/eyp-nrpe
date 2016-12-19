@@ -39,7 +39,7 @@ server_address=<%= @server_address %>
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-nrpe_user=<%= scope.lookupvar('nrpe::params::username') %>
+nrpe_user=<%= @username %>
 
 # NRPE GROUP
 # This determines the effective group that the NRPE daemon should run as.
@@ -47,7 +47,7 @@ nrpe_user=<%= scope.lookupvar('nrpe::params::username') %>
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-nrpe_group=<%= scope.lookupvar('nrpe::params::group') %>
+nrpe_group=<%= @group %>
 
 
 
