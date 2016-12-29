@@ -17,9 +17,7 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+NRPE setup and configuration
 
 ## Module Description
 
@@ -74,6 +72,9 @@ the fancy stuff with your module here.
  * **nrped_recurse**                   = true
  * **server_address**                  = undef
  * **server_port**                     = '5666'
+ * **username**                        = $nrpe::params::username_default,
+ * **group**                           = $nrpe::params::group_default,
+ * **nrpe_conf_dir**                   = $nrpe::params::nrpe_conf_dir_default,
 
 ## Limitations
 
