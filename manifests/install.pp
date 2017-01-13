@@ -17,7 +17,7 @@ class nrpe::install inherits nrpe {
 
     if($nrpe::install_plugins)
     {
-      package { $nrpe::params::plugins_packages:
+      package { $nrpe::plugins_packages:
         ensure => $nrpe::package_ensure,
       }
     }
