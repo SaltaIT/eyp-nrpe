@@ -14,6 +14,8 @@ class nrpe(
                             $manage_docker_service           = true,
                             $service_ensure                  = 'running',
                             $service_enable                  = true,
+                            #extra packages
+                            $plugins_package_name            = $nrpe::params::plugins_package_name_default,
                             # nrpe variables
                             $dont_blame_nrpe                 = false,
                             $allow_bash_command_substitution = false,
