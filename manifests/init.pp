@@ -15,7 +15,7 @@ class nrpe(
                             $service_ensure                  = 'running',
                             $service_enable                  = true,
                             #extra packages
-                            $plugins_package_name            = $nrpe::params::plugins_package_name_default,
+                            $plugins_packages                = $nrpe::params::plugins_packages_default,
                             # nrpe variables
                             $dont_blame_nrpe                 = false,
                             $allow_bash_command_substitution = false,

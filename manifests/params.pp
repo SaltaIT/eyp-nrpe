@@ -10,7 +10,7 @@ class nrpe::params {
       $service_name='nrpe'
       $include_epel=true
       $package_name='nrpe'
-      $plugins_package_name_default=[ 'nagios-plugins-nrpe' ]
+      $plugins_packages_default=[ 'nagios-plugins-nrpe' ]
       $nrpe_conf_dir_default='/etc/nrpe.d'
       $username_default='nrpe'
       $group_default='nrpe'
@@ -28,7 +28,7 @@ class nrpe::params {
       $service_name='nagios-nrpe-server'
       $include_epel=false
       $package_name='nagios-nrpe-server'
-      $plugins_package_name_default=[ 'nagios-plugins-basic' ]
+      $plugins_packages_default=[ 'nagios-plugins-basic' ]
       $nrpe_conf_dir_default='/etc/nagios/nrpe.d'
       $username_default='nagios'
       $group_default='nagios'
