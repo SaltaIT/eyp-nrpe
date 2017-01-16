@@ -60,7 +60,7 @@ nrpe::command { 'check_plugin_custom':
 
 ### nrpe
 
- * **dont_blame_nrpe**: # This option determines whether or not the NRPE daemon will allow clients to specify arguments to commands that are executed. (default: false) - **LIMITATION**: On Ubuntu 16.04 this option is **ignored** due to a [supposed security risk](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=756479)
+ * **dont_blame_nrpe**: # This option determines whether or not the NRPE daemon will allow clients to specify arguments to commands that are executed. (default: false) - **WARNING**: On **Ubuntu 16.04** this option is **ignored** due to a [supposed security risk](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=756479)
  * **allow_bash_command_substitution** = false
  * **debug**                           = false
  * **command_timeout**                 = '60'
