@@ -4,6 +4,17 @@ class nrpe::config inherits nrpe {
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
   }
 
+  if($nrpe::params::sysconfig_file!=undef)
+  {
+    file { $nrpe::params::sysconfig_file:
+      ensure  => 'present',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+      content => template($nrpe::params::sysconfig_template),
+    }
+  }
+
   concat { $nrpe::params::nrpe_conf:
     ensure => 'present',
     owner  => 'root',

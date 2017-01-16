@@ -14,6 +14,8 @@ class nrpe::params {
       $nrpe_conf_dir_default='/etc/nrpe.d'
       $username_default='nrpe'
       $group_default='nrpe'
+      $sysconfig_file=undef
+      $sysconfig_template=undef
 
       case $::operatingsystemrelease
       {
@@ -32,6 +34,8 @@ class nrpe::params {
       $nrpe_conf_dir_default='/etc/nagios/nrpe.d'
       $username_default='nagios'
       $group_default='nagios'
+      $sysconfig_file='/etc/default/nagios-nrpe-server'
+      $sysconfig_template="${module_name}/sysconfig/ubuntu.erb"
 
       case $::operatingsystem
       {
@@ -39,7 +43,7 @@ class nrpe::params {
         {
           case $::operatingsystemrelease
           {
-            /^14.*$/:
+            /^1[46].*$/:
             {
             }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }

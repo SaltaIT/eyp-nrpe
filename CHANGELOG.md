@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.1.4
+
+* added **/etc/default/nagios-nrpe-server** under puppet control
+* ubuntu 16.04 support
+
 ## 0.1.3
 
 * bugfix plugins packages
