@@ -88,6 +88,7 @@ have some test to check both presence and absence of any feature
 ### TODO
 
 * multi instance support
+* enable/disable SSL support
 
 ### Contributing
 
