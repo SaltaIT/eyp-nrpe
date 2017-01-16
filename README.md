@@ -58,7 +58,9 @@ nrpe::command { 'check_plugin_custom':
 
 ## Reference
 
-### nrpe
+### classes
+
+#### nrpe
 
  * **dont_blame_nrpe**: # This option determines whether or not the NRPE daemon will allow clients to specify arguments to commands that are executed. (default: false) - **WARNING**: On **Ubuntu 16.04** this option is **ignored** due to a [supposed security risk](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=756479)
  * **allow_bash_command_substitution** = false
@@ -76,6 +78,12 @@ nrpe::command { 'check_plugin_custom':
  * **username**                        = $nrpe::params::username_default,
  * **group**                           = $nrpe::params::group_default,
  * **nrpe_conf_dir**                   = $nrpe::params::nrpe_conf_dir_default,
+
+### defines
+
+#### nrpe::command
+
+#### nrpe::includedir
 
 ## Limitations
 
