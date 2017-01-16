@@ -21,13 +21,7 @@ NRPE setup and configuration
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+This module installs NRPE and manages it's configuration file
 
 ## Setup
 
@@ -44,22 +38,29 @@ This module requires pluginsync enabled
 
 ### Beginning with nrpe
 
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+```puppet
+class { '::nrpe':
+  dont_blame_nrpe   => true,
+  allowed_hosts     => [ '1.2.3.4', '1.1.1.1' ],
+  nrpe_conf_dir     => '/etc/nagios/nrpe.d/',
+  nrpe_conf_purge   => false,
+  nrpe_conf_recurse => true,
+}
+```
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+```puppet
+nrpe::command { 'check_plugin_custom':
+  command => '$ARG1$',
+}
+```
 
 ## Reference
 
 ### nrpe
 
- * **dont_blame_nrpe**                 = false
+ * **dont_blame_nrpe**: # This option determines whether or not the NRPE daemon will allow clients to specify arguments to commands that are executed. (default: false) - **LIMITATION**: On Ubuntu 16.04 this option is **ignored** due to a [supposed security risk](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=756479)
  * **allow_bash_command_substitution** = false
  * **debug**                           = false
  * **command_timeout**                 = '60'
@@ -78,7 +79,11 @@ the fancy stuff with your module here.
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+Tested on:
+* CentOS 5
+* CentOS 6
+* CentOS 7
+* Ubuntu 14.04
 
 ## Development
 
