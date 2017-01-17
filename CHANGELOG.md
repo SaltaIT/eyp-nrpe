@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.5
+
+* added support for SLES11SP3
+
 ## 0.1.4
 
 * added **/etc/default/nagios-nrpe-server** under puppet control

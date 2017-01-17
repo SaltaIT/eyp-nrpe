@@ -53,6 +53,33 @@ class nrpe::params {
         default: { fail('Unsupported Debian flavour!')  }
       }
     }
+    'Suse':
+    {
+      $service_name='nrpe'
+      $include_epel=false
+      $package_name='nagios-nrpe'
+      $plugins_packages_default=[ 'nagios-plugins-nrpe' ]
+      $nrpe_conf_dir_default='/etc/nagios/nrpe.d'
+      $username_default='nagios'
+      $group_default='nagios'
+      $sysconfig_file=undef
+      $sysconfig_template=undef
+
+      case $::operatingsystem
+      {
+        'SLES':
+        {
+          case $::operatingsystemrelease
+          {
+            '11.3':
+            {
+            }
+            default: { fail("Unsupported operating system ${::operatingsystem} ${::operatingsystemrelease}") }
+          }
+        }
+        default: { fail("Unsupported operating system ${::operatingsystem}") }
+      }
+    }
     default: { fail('Unsupported OS!')  }
   }
 }
