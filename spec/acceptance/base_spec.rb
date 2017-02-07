@@ -17,5 +17,9 @@ describe 'nrpe class' do
       expect(apply_manifest(pp).exit_code).to eq(0)
     end
 
+    describe port(5666) do
+      it { is_expected.to be_listening }
+    end
+
   end
 end
