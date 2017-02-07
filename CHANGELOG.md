@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.6
+
+* updated PID file for ubuntu16
+
 ## 0.1.5
 
 * added support for SLES11SP3

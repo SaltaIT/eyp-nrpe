@@ -1,12 +1,13 @@
 class nrpe::params {
 
   $nrpe_conf='/etc/nagios/nrpe.cfg'
-  $pid_file='/var/run/nrpe/nrpe.pid'
+
 
   case $::osfamily
   {
     'redhat':
     {
+      $pid_file='/var/run/nrpe/nrpe.pid'
       $service_name='nrpe'
       $include_epel=true
       $package_name='nrpe'
@@ -27,6 +28,7 @@ class nrpe::params {
     }
     'Debian':
     {
+      $pid_file='/var/run/nagios/nrpe.pid'
       $service_name='nagios-nrpe-server'
       $include_epel=false
       $package_name='nagios-nrpe-server'
@@ -55,6 +57,7 @@ class nrpe::params {
     }
     'Suse':
     {
+      $pid_file='/var/run/nrpe/nrpe.pid'
       $service_name='nrpe'
       $include_epel=false
       $package_name='nagios-nrpe'
