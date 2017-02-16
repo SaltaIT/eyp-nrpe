@@ -9,6 +9,10 @@ class nrpe::install inherits nrpe {
       Package[$nrpe::params::package_name] {
         require => Class['::epel'],
       }
+
+      Package[$nrpe::plugins_packages] {
+        require => Class['::epel'],
+      }
     }
 
     package { $nrpe::params::package_name:

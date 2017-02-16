@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.7
+
+* bugfix plugins_packages dependencies
+
 ## 0.1.6
 
 * updated PID file for ubuntu16
