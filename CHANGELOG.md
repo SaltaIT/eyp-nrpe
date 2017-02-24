@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.8
+
+* if allowed_hosts is an empty array [], do not add this directive to the config file
+
 ## 0.1.7
 
 * bugfix plugins_packages dependencies

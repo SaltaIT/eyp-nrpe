@@ -64,7 +64,11 @@ nrpe_group=<%= @group %>
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
+<% if @allowed_hosts.any? -%>
 allowed_hosts=<%= @allowed_hosts.join(',') %>
+<% else -%>
+# allowed_hosts
+<% end -%>
 
 
 # COMMAND ARGUMENT PROCESSING
