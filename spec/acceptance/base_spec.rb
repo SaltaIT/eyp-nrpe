@@ -8,7 +8,10 @@ describe 'nrpe class' do
     it 'should work with no errors' do
       pp = <<-EOF
 
-      class { 'nrpe': }
+      class { 'nrpe':
+        allowed_hosts => [],
+        dont_blame_nrpe => true,
+      }
 
       EOF
 
@@ -19,6 +22,14 @@ describe 'nrpe class' do
 
     describe port(5666) do
       it { is_expected.to be_listening }
+    end
+
+    it "check nrpe return code" do
+      expect(shell($exec_nrpe + " -H 127.0.0.1 -c check_test -a O K").exit_code).to be_zero
+    end
+
+    it "check nrpe string OK" do
+      expect(shell($exec_nrpe + " -H 127.0.0.1 -c check_test -a O K | grep OK").exit_code).to be_zero
     end
 
   end

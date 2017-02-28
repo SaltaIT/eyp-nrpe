@@ -13,7 +13,7 @@ class nrpe::install inherits nrpe {
       apt::pin { 'dontblamenrpe':
         originator => 'LP-PPA-dontblamenrpe',
         priority   => '700',
-        require    => Apt::Ppa['ppa:dontblamenrpe/ppa']
+        require    => [ Apt::Ppa['ppa:dontblamenrpe/ppa'], Exec['eyp-apt apt-get update'] ],
       }
 
       Package[$nrpe::params::package_name] {

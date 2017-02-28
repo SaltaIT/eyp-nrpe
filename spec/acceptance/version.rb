@@ -5,12 +5,12 @@ _operatingsystemrelease = fact('operatingsystemrelease').to_f
 
 case _osfamily
 when 'RedHat'
-  $examplevar = 'valrh'
+  $exec_nrpe = '/usr/lib64/nagios/plugins/check_nrpe'
 
 when 'Debian'
-  $examplevar = 'valdeb'
+  $exec_nrpe = '/usr/lib/nagios/plugins/check_nrpe'
 
 else
-  $examplevar = '-_-'
+  $exec_nrpe = '-_-'
 
 end

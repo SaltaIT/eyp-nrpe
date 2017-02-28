@@ -33,7 +33,7 @@ class nrpe::params {
       $service_name='nagios-nrpe-server'
       $include_epel=false
       $package_name='nagios-nrpe-server'
-      $plugins_packages_default=[ 'nagios-plugins-basic' ]
+      $plugins_packages_default=[ 'nagios-plugins-basic', 'nagios-nrpe-plugin' ]
       $nrpe_conf_dir_default='/etc/nagios/nrpe.d'
       $username_default='nagios'
       $group_default='nagios'
