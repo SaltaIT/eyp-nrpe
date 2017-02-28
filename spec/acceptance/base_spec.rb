@@ -24,6 +24,10 @@ describe 'nrpe class' do
       expect(apply_manifest(pp).exit_code).to eq(0)
     end
 
+    it "nrpe cfg" do
+      expect(shell("cat /etc/nagios/nrpe.cfg").exit_code).to be_zero
+    end
+
     describe file("/etc/nagios/nrpe.cfg") do
       it { should be_file }
       its(:content) { should match 'dont_blame_nrpe=1' }
