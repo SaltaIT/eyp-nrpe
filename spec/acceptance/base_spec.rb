@@ -13,11 +13,21 @@ describe 'nrpe class' do
         dont_blame_nrpe => true,
       }
 
+      nrpe::command { 'check_test':
+        command => 'echo $ARG1$$ARG2$'
+      }
+
       EOF
 
       # Run it twice and test for idempotency
       expect(apply_manifest(pp).exit_code).to_not eq(1)
       expect(apply_manifest(pp).exit_code).to eq(0)
+    end
+
+    describe file("/etc/nagios/nrpe.cfg") do
+      it { should be_file }
+      its(:content) { should match 'dont_blame_nrpe=1' }
+      its(:content) { should match 'command[check_test]=echo $ARG1$$ARG2$' }
     end
 
     describe port(5666) do
