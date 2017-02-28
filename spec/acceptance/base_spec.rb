@@ -27,7 +27,7 @@ describe 'nrpe class' do
     describe file("/etc/nagios/nrpe.cfg") do
       it { should be_file }
       its(:content) { should match 'dont_blame_nrpe=1' }
-      its(:content) { should match 'command[check_test]=echo $ARG1$$ARG2$' }
+      its(:content) { should include('command[check_test]=echo $ARG1$$ARG2$') }
     end
 
     describe port(5666) do
