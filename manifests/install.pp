@@ -2,6 +2,29 @@ class nrpe::install inherits nrpe {
 
   if($nrpe::manage_package)
   {
+    if($nrpe::params::ppa_dont_blame)
+    {
+      include ::apt
+
+      apt::ppa { 'ppa:dontblamenrpe/ppa':
+        ensure => 'present',
+      }
+
+      apt::pin { 'dontblamenrpe':
+        originator => 'LP-PPA-dontblamenrpe',
+        priority   => '700',
+        require    => Apt::Ppa['ppa:dontblamenrpe/ppa']
+      }
+
+      Package[$nrpe::params::package_name] {
+        require => Apt::Pin['dontblamenrpe'],
+      }
+
+      Package[$nrpe::plugins_packages] {
+        require => Apt::Pin['dontblamenrpe'],
+      }
+    }
+
     if($nrpe::params::include_epel)
     {
       include ::epel
