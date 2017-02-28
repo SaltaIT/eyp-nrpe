@@ -31,6 +31,7 @@ This module installs NRPE and manages it's configuration file
   impact, or execute on the system it's installed on.
 * This is a great place to stick any warnings.
 * Can be in list or paragraph form.
+* On **Ubuntu 16.04** installs PPA [dontblamenrpe](https://launchpad.net/~dontblamenrpe/+archive/ubuntu/ppa/+packages)
 
 ### Setup Requirements
 
