@@ -3,6 +3,7 @@
 ## 0.1.9
 
 * added eyp-apt as a dependency
+* **Ubuntu 16**: using ppa:dontblamenrpe/ppa to install NRPE to have a NRPE server with **--enable-command-args** - Debian Bug report [#756479](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=756479)
 
 ## 0.1.8
 
