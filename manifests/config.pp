@@ -37,6 +37,7 @@ class nrpe::config inherits nrpe {
           group   => 'root',
           mode    => '0400',
           content => template("${module_name}/selinux/policy.erb"),
+          require => Exec['nrpe selinux dir'],
         }
 
         selinux::semodule { 'nrpe_monit':
