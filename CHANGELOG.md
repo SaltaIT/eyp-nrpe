@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.10
+
+* added SELinux support
+
 ## 0.1.9
 
 * added **eyp-apt** as a dependency

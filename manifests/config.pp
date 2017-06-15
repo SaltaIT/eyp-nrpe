@@ -4,6 +4,50 @@ class nrpe::config inherits nrpe {
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
   }
 
+  if(defined(Class['::selinux']))
+  {
+    $current_selinux_mode = $::selinux? {
+      bool2boolstr(false) => 'disabled',
+      false               => 'disabled',
+      default             => $::selinux_current_mode,
+    }
+
+    case $current_selinux_mode
+    {
+      /^(enforcing|permissive)$/:
+      {
+        #!!!! This avc can be allowed using the boolean 'daemons_dump_core'
+        selinux::setbool { 'daemons_dump_core':
+          value => true,
+        }
+
+        #!!!! This avc can be allowed using the boolean 'nagios_run_sudo'
+        selinux::setbool { 'nagios_run_sudo':
+          value => true,
+        }
+
+        exec { 'nrpe selinux dir':
+          command => "mkdir -p ${nrpe::selinux_dir}",
+          creates => $nrpe::selinux_dir,
+        }
+
+        file { "${selinux::selinux_dir}/nrpe_monit.te":
+          ensure  => 'present',
+          owner   => 'root',
+          group   => 'root',
+          mode    => '0400',
+          content => template("${module_name}/selinux/policy.erb"),
+        }
+
+        selinux::semodule { 'nrpe_monit':
+          basedir => $selinux::selinux_dir,
+          require => File["${selinux::selinux_dir}/nrpe_monit.te"],
+        }
+      }
+      'disabled': { }
+      default: { fail('this should not happen') }
+  }
+
   if($nrpe::params::sysconfig_file!=undef)
   {
     file { $nrpe::params::sysconfig_file:

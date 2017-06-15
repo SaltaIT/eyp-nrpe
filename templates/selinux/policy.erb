@@ -1,0 +1,55 @@
+
+module nrpe_monit 1.0.0;
+
+require {
+	type user_tmp_t;
+	type home_root_t;
+	type sudo_exec_t;
+	type tmp_t;
+	type auditd_log_t;
+	type usr_t;
+	type boot_t;
+	type var_log_t;
+	type device_t;
+	type root_t;
+	type nrpe_t;
+	type var_t;
+	type tmpfs_t;
+	class capability { audit_write dac_override };
+	class dir { add_name getattr open read remove_name write };
+	class file { create execute execute_no_trans getattr open read unlink write };
+	class netlink_audit_socket { create nlmsg_relay };
+}
+
+#============= nrpe_t ==============
+allow nrpe_t auditd_log_t:dir { add_name getattr open read remove_name write };
+allow nrpe_t auditd_log_t:file { create getattr open unlink write };
+
+#!!!! WARNING: 'boot_t' is a base type.
+allow nrpe_t boot_t:dir { add_name remove_name write };
+allow nrpe_t boot_t:file { create unlink write };
+
+#!!!! WARNING: 'device_t' is a base type.
+allow nrpe_t device_t:dir { add_name remove_name write };
+allow nrpe_t device_t:file { create getattr open unlink write };
+
+#!!!! WARNING: 'home_root_t' is a base type.
+allow nrpe_t home_root_t:dir { add_name read remove_name write };
+allow nrpe_t home_root_t:file { create getattr open unlink write };
+
+#!!!! WARNING: 'tmp_t' is a base type.
+allow nrpe_t tmp_t:file { create open unlink write };
+allow nrpe_t tmpfs_t:dir { add_name read remove_name write };
+allow nrpe_t tmpfs_t:file { create getattr open read unlink write };
+allow nrpe_t user_tmp_t:dir { add_name read remove_name write };
+allow nrpe_t user_tmp_t:file { create open unlink };
+
+#!!!! WARNING: 'usr_t' is a base type.
+allow nrpe_t usr_t:dir { add_name remove_name write };
+allow nrpe_t usr_t:file { create unlink write };
+allow nrpe_t var_log_t:dir { add_name read remove_name write };
+allow nrpe_t var_log_t:file { create open unlink write };
+
+#!!!! WARNING: 'var_t' is a base type.
+allow nrpe_t var_t:dir { add_name remove_name write };
+allow nrpe_t var_t:file { create getattr open unlink write };
