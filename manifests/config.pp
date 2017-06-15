@@ -46,6 +46,7 @@ class nrpe::config inherits nrpe {
       }
       'disabled': { }
       default: { fail('this should not happen') }
+    }
   }
 
   if($nrpe::params::sysconfig_file!=undef)
