@@ -31,7 +31,7 @@ class nrpe::config inherits nrpe {
           creates => $nrpe::selinux_dir,
         }
 
-        file { "${selinux::selinux_dir}/nrpe_monit.te":
+        file { "${nrpe::selinux_dir}/nrpe_monit.te":
           ensure  => 'present',
           owner   => 'root',
           group   => 'root',
@@ -40,8 +40,8 @@ class nrpe::config inherits nrpe {
         }
 
         selinux::semodule { 'nrpe_monit':
-          basedir => $selinux::selinux_dir,
-          require => File["${selinux::selinux_dir}/nrpe_monit.te"],
+          basedir => $nrpe::selinux_dir,
+          require => File["${nrpe::selinux_dir}/nrpe_monit.te"],
         }
       }
       'disabled': { }
