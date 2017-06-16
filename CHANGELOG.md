@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.11
+
+* SELinux: added check nfs
+
 ## 0.1.10
 
 * added SELinux support

@@ -1,5 +1,5 @@
 
-module nrpe_monit 1.0.1;
+module nrpe_monit 1.0.2;
 
 require {
 	type user_tmp_t;
@@ -16,6 +16,8 @@ require {
 	type nrpe_t;
 	type sudo_exec_t;
 	type tmpfs_t;
+	type mount_exec_t;
+	type nfs_t;
 	class capability { audit_write dac_override };
 	class file { create execute execute_no_trans getattr open read unlink write };
 	class dir { add_name getattr open read remove_name search write };
@@ -23,6 +25,10 @@ require {
 }
 
 #============= nrpe_t ==============
+allow nrpe_t mount_exec_t:file getattr;
+allow nrpe_t nfs_t:dir { getattr read search };
+
+
 allow nrpe_t auditd_log_t:dir search;
 
 #!!!! This avc is allowed in the current policy
