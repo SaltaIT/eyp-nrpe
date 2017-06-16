@@ -17,6 +17,7 @@ require {
 	type sudo_exec_t;
 	type tmpfs_t;
 	type mount_exec_t;
+	type mount_var_run_t;
 	type nfs_t;
 	class capability { audit_write dac_override };
 	class file { create execute execute_no_trans getattr open read unlink write };
@@ -26,8 +27,9 @@ require {
 
 #============= nrpe_t ==============
 allow nrpe_t mount_exec_t:file { execute_no_trans open getattr execute read };
-allow nrpe_t nfs_t:dir { add_name open write getattr read search };
-allow nrpe_t nfs_t:file { open read create getattr };
+allow nrpe_t mount_var_run_t:file { getattr read write };
+allow nrpe_t nfs_t:dir { add_name open write getattr read search remove_name };
+allow nrpe_t nfs_t:file { open read create getattr write };
 
 
 allow nrpe_t auditd_log_t:dir search;
