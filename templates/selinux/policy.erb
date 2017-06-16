@@ -1,5 +1,5 @@
 
-module nrpe_monit 1.0.2;
+module nrpe_monit 1.0.3;
 
 require {
 	type user_tmp_t;
@@ -25,8 +25,9 @@ require {
 }
 
 #============= nrpe_t ==============
-allow nrpe_t mount_exec_t:file getattr;
-allow nrpe_t nfs_t:dir { getattr read search };
+allow nrpe_t mount_exec_t:file { getattr execute read };
+allow nrpe_t nfs_t:dir { write getattr read search };
+allow nrpe_t nfs_t:file read;
 
 
 allow nrpe_t auditd_log_t:dir search;
