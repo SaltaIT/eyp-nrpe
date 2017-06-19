@@ -1,5 +1,5 @@
 
-module nrpe_monit 1.0.9;
+module nrpe_monit 1.0.10;
 
 require {
 	type user_tmp_t;
@@ -19,10 +19,35 @@ require {
 	type mount_exec_t;
 	type mount_var_run_t;
 	type nfs_t;
+	type unconfined_t;
+	type rpcbind_t;
+	type init_t;
+	type auditd_t;
+	type syslogd_t;
+	type NetworkManager_t;
+	type initrc_t;
+	type system_dbusd_t;
+	type tuned_t;
+	type snmpd_t;
+	type udev_t;
+	type systemd_logind_t;
+	type postfix_qmgr_t;
+	type httpd_t;
+	type policykit_t;
+	type puppetagent_t;
+	type irqbalance_t;
+	type httpd_rotatelogs_t;
+	type postfix_pickup_t;
+	type sshd_t;
+	type crond_t;
+	type lvm_t;
+	type rpcd_t;
+	type gssproxy_t;
 	class capability { audit_write dac_override };
 	class file { create execute execute_no_trans getattr open read unlink write };
 	class dir { add_name getattr open read remove_name search write };
 	class netlink_audit_socket { create nlmsg_relay };
+
 }
 
 #============= nrpe_t ==============
@@ -30,6 +55,35 @@ allow nrpe_t mount_exec_t:file { execute_no_trans open getattr execute read };
 allow nrpe_t mount_var_run_t:file { open getattr read write };
 allow nrpe_t nfs_t:dir { add_name open write getattr read search remove_name };
 allow nrpe_t nfs_t:file { open read create getattr write unlink };
+
+allow nrpe_t NetworkManager_t:process getattr;
+allow nrpe_t auditd_t:process getattr;
+allow nrpe_t crond_t:process getattr;
+allow nrpe_t gssproxy_t:process getattr;
+allow nrpe_t httpd_rotatelogs_t:process getattr;
+allow nrpe_t httpd_t:process getattr;
+allow nrpe_t init_t:process getattr;
+allow nrpe_t initrc_t:process getattr;
+allow nrpe_t irqbalance_t:process getattr;
+allow nrpe_t lvm_t:process getattr;
+allow nrpe_t ntpd_t:process getattr;
+allow nrpe_t policykit_t:process getattr;
+allow nrpe_t postfix_master_t:process getattr;
+allow nrpe_t postfix_pickup_t:process getattr;
+allow nrpe_t postfix_qmgr_t:process getattr;
+allow nrpe_t proc_net_t:file read;
+allow nrpe_t puppetagent_t:process getattr;
+allow nrpe_t rpcbind_t:process getattr;
+allow nrpe_t rpcd_t:process getattr;
+allow nrpe_t self:process getattr;
+allow nrpe_t snmpd_t:process getattr;
+allow nrpe_t sshd_t:process getattr;
+allow nrpe_t syslogd_t:process getattr;
+allow nrpe_t system_dbusd_t:process getattr;
+allow nrpe_t systemd_logind_t:process getattr;
+allow nrpe_t tuned_t:process getattr;
+allow nrpe_t udev_t:process getattr;
+allow nrpe_t unconfined_t:process getattr;
 
 
 allow nrpe_t auditd_log_t:dir search;

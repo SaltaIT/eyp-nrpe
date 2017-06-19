@@ -26,6 +26,11 @@ class nrpe::config inherits nrpe {
           value => true,
         }
 
+        #!!!! This avc can be allowed using the boolean 'nis_enabled'
+        selinux::setbool { 'nis_enabled':
+          value => true,
+        }
+
         exec { 'nrpe selinux dir':
           command => "mkdir -p ${nrpe::selinux_dir}",
           creates => $nrpe::selinux_dir,
