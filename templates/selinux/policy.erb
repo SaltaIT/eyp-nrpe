@@ -47,7 +47,7 @@ require {
 	class file { create execute execute_no_trans getattr open read unlink write };
 	class dir { add_name getattr open read remove_name search write };
 	class netlink_audit_socket { create nlmsg_relay };
-
+	class process getattr;
 }
 
 #============= nrpe_t ==============
