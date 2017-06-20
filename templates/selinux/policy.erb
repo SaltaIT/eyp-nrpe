@@ -58,6 +58,7 @@ allow nrpe_t mount_exec_t:file { execute_no_trans open getattr execute read };
 allow nrpe_t mount_var_run_t:file { open getattr read write };
 allow nrpe_t nfs_t:dir { add_name open write getattr read search remove_name };
 allow nrpe_t nfs_t:file { open read create getattr write unlink };
+allow nrpe_t proc_net_t:file { open read getattr };
 
 allow nrpe_t NetworkManager_t:process getattr;
 allow nrpe_t auditd_t:process getattr;
