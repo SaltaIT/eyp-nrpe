@@ -48,6 +48,7 @@ require {
 	type ntpd_t;
 	type rpcd_t;
 	type gssproxy_t;
+	type dhcpc_t;
 	class capability { audit_write dac_override };
 	class file { create execute execute_no_trans getattr open read unlink write };
 	class dir { add_name getattr open read remove_name search write };
@@ -62,6 +63,7 @@ allow nrpe_t nfs_t:dir { add_name open write getattr read search remove_name };
 allow nrpe_t nfs_t:file { open read create getattr write unlink };
 allow nrpe_t proc_net_t:file { open read getattr };
 
+allow nrpe_t dhcpc_t:process getattr;
 allow nrpe_t NetworkManager_t:process getattr;
 allow nrpe_t auditd_t:process getattr;
 allow nrpe_t crond_t:process getattr;
