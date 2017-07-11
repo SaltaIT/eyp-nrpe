@@ -1,3 +1,6 @@
+#
+# puppet2sitepp @nrpecommands
+#
 define nrpe::command(
                       $command,
                       $commandname = $name,

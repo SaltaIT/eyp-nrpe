@@ -1,3 +1,6 @@
+#
+# puppet2sitepp @nrpeincludedirs
+#
 define nrpe::includedir (
                           $dir       = $name,
                           $createdir = true,
