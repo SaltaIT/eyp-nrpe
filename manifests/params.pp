@@ -54,6 +54,10 @@ class nrpe::params {
             {
               $ppa_dont_blame=true
             }
+            /^18.*$/:
+            {
+              $ppa_dont_blame=false
+            }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
           }
         }

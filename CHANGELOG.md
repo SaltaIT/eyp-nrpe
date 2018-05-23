@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.12
+
+* added Ubuntu 18.04 support
+
 ## 0.1.11
 
 * SELinux: added check nfs
