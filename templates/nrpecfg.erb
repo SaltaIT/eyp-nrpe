@@ -65,7 +65,11 @@ nrpe_group=<%= @group %>
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
 <% if @allowed_hosts.any? -%>
+<% if @allowed_hosts.join(',').empty? -%>
+# allowed_hosts
+<% else %>
 allowed_hosts=<%= @allowed_hosts.join(',') %>
+<% end -%>
 <% else -%>
 # allowed_hosts
 <% end -%>

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.1.13
+2018-06-25
+
+* Discard empty strings as an **allowed_hosts**
+
 ## 0.1.12
 
 * added Ubuntu 18.04 support
