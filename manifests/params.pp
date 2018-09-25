@@ -85,7 +85,7 @@ class nrpe::params {
         {
           case $::operatingsystemrelease
           {
-            '11.3':
+            /^1[12].3$/:
             {
             }
             default: { fail("Unsupported operating system ${::operatingsystem} ${::operatingsystemrelease}") }
