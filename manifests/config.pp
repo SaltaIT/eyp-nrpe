@@ -119,7 +119,7 @@ class nrpe::config inherits nrpe {
             '12.3':
             {
               systemd::service::dropin { 'nrpe':
-                runtime_directory => $nrpe::pid_dir,
+                runtime_directory      => $nrpe::pid_dir,
                 runtime_directory_mode => '0755',
               }
             }
