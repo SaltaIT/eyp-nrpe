@@ -37,7 +37,7 @@ class nrpe(
             $pid_dir                         = $nrpe::params::pid_dir_default,
           ) inherits nrpe::params{
 
-  $pid_dir = "${pid_dir}/nrpe.pid"
+  $pid_file = "${pid_dir}/nrpe.pid"
 
   class { '::nrpe::install': } ->
   class { '::nrpe::config': } ~>
