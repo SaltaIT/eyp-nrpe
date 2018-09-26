@@ -106,30 +106,4 @@ class nrpe::config inherits nrpe {
     require => Exec["mkdir p nrpe ${nrpe::nrpe_conf_dir}"],
   }
 
-  case $::osfamily
-  {
-    'Suse':
-    {
-      case $::operatingsystem
-      {
-        'SLES':
-        {
-          case $::operatingsystemrelease
-          {
-            '12.3':
-            {
-              systemd::service::dropin { 'nrpe':
-                runtime_directory      => $nrpe::pid_dir,
-                runtime_directory_mode => '0755',
-              }
-            }
-            default: { }
-          }
-        }
-        default: { }
-      }
-    }
-    default: { }
-  }
-
 }
