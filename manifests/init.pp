@@ -34,9 +34,10 @@ class nrpe(
             $group                           = $nrpe::params::group_default,
             $nrpe_conf_dir                   = $nrpe::params::nrpe_conf_dir_default,
             $selinux_dir                     = '/usr/local/src/selinux/nrpe',
+            $pid_dir                         = $nrpe::params::pid_dir_default,
           ) inherits nrpe::params{
 
-  validate_re($package_ensure, [ '^present$', '^installed$', '^absent$', '^purged$', '^held$', '^latest$' ], 'Not a supported package_ensure: present/absent/purged/held/latest')
+  $pid_dir = "${pid_dir}/nrpe.pid"
 
   class { '::nrpe::install': } ->
   class { '::nrpe::config': } ~>
