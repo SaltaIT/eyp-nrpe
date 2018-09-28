@@ -69,8 +69,7 @@ class nrpe::params {
     {
       $service_name='nrpe'
       $include_epel=false
-      $package_name='nagios-nrpe'
-      $plugins_packages_default=[ 'nagios-plugins-nrpe' ]
+
       $nrpe_conf_dir_default='/etc/nagios/nrpe.d'
       $username_default='nagios'
       $group_default='nagios'
@@ -86,10 +85,14 @@ class nrpe::params {
           {
             '11.3':
             {
+              $package_name='nagios-nrpe'
+              $plugins_packages_default=[ 'nagios-plugins-nrpe' ]
               $pid_dir_default='/var/run/nrpe'
             }
             '12.3':
             {
+              $package_name='nrpe'
+              $plugins_packages_default=[ 'monitoring-plugins-nrpe' ]
               $pid_dir_default='/run/nrpe'
             }
             default: { fail("Unsupported operating system ${::operatingsystem} ${::operatingsystemrelease}") }
