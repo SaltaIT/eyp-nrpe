@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.15
+
+* Added flag to disable selinux booleans management
+
 ## 0.1.14
 
 * Added SLES 12.3 support

@@ -12,46 +12,49 @@ class nrpe::config inherits nrpe {
       default             => $::selinux_current_mode,
     }
 
-    case $current_selinux_mode
+    if($nrpe::manage_selinux_booleans)
     {
-      /^(enforcing|permissive)$/:
+      case $current_selinux_mode
       {
-        #!!!! This avc can be allowed using the boolean 'daemons_dump_core'
-        selinux::setbool { 'daemons_dump_core':
-          value => true,
-        }
+        /^(enforcing|permissive)$/:
+        {
+          #!!!! This avc can be allowed using the boolean 'daemons_dump_core'
+          selinux::setbool { 'daemons_dump_core':
+            value => true,
+          }
 
-        #!!!! This avc can be allowed using the boolean 'nagios_run_sudo'
-        selinux::setbool { 'nagios_run_sudo':
-          value => true,
-        }
+          #!!!! This avc can be allowed using the boolean 'nagios_run_sudo'
+          selinux::setbool { 'nagios_run_sudo':
+            value => true,
+          }
 
-        #!!!! This avc can be allowed using the boolean 'nis_enabled'
-        selinux::setbool { 'nis_enabled':
-          value => true,
-        }
+          #!!!! This avc can be allowed using the boolean 'nis_enabled'
+          selinux::setbool { 'nis_enabled':
+            value => true,
+          }
 
-        exec { 'nrpe selinux dir':
-          command => "mkdir -p ${nrpe::selinux_dir}",
-          creates => $nrpe::selinux_dir,
-        }
+          exec { 'nrpe selinux dir':
+            command => "mkdir -p ${nrpe::selinux_dir}",
+            creates => $nrpe::selinux_dir,
+          }
 
-        file { "${nrpe::selinux_dir}/nrpe_monit.te":
-          ensure  => 'present',
-          owner   => 'root',
-          group   => 'root',
-          mode    => '0400',
-          content => template("${module_name}/selinux/policy.erb"),
-          require => Exec['nrpe selinux dir'],
-        }
+          file { "${nrpe::selinux_dir}/nrpe_monit.te":
+            ensure  => 'present',
+            owner   => 'root',
+            group   => 'root',
+            mode    => '0400',
+            content => template("${module_name}/selinux/policy.erb"),
+            require => Exec['nrpe selinux dir'],
+          }
 
-        selinux::semodule { 'nrpe_monit':
-          basedir => $nrpe::selinux_dir,
-          require => File["${nrpe::selinux_dir}/nrpe_monit.te"],
+          selinux::semodule { 'nrpe_monit':
+            basedir => $nrpe::selinux_dir,
+            require => File["${nrpe::selinux_dir}/nrpe_monit.te"],
+          }
         }
-      }
-      'disabled': { }
-      default: { fail('this should not happen') }
+        'disabled': { }
+        default: { fail('this should not happen') }
+      }  
     }
   }
 

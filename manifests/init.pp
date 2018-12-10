@@ -8,6 +8,7 @@
 # 99 include
 #
 class nrpe(
+            $manage_selinux_booleans         = true,
             $manage_package                  = true,
             $package_ensure                  = 'installed',
             $manage_service                  = true,
