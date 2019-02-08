@@ -89,7 +89,7 @@ class nrpe::params {
               $plugins_packages_default=[ 'nagios-plugins-nrpe' ]
               $pid_dir_default='/var/run/nrpe'
             }
-            '12.3':
+            /^12.[34]/:
             {
               $package_name='nrpe'
               $plugins_packages_default=[ 'monitoring-plugins-nrpe' ]
