@@ -1,6 +1,6 @@
 {
   "name": "eyp-nrpe",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "author": "eyp",
   "summary": "NRPE management",
   "license": "Apache-2.0",
@@ -13,7 +13,7 @@
     {"name":"eyp/apt","version_requirement":">= 0.1.0 < 0.2.0"},
     {"name":"eyp/eyplib","version_requirement":">= 0.1.0 < 0.2.0"},
     {"name":"eyp/selinux","version_requirement":">= 0.1.13 < 0.2.0"},
-    {"name":"eyp/systemd","version_requirement":">= 0.1.48 < 0.2.0"}
+    {"name":"eyp/systemd","version_requirement":">= 0.1.48 < 0.3.0"}
   ],
   "operatingsystem_support": [
     {
