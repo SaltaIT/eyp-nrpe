@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.18
+
+* Added RHEL 8 support
+
 ## 0.1.17
 
 * Updated metadata for **eyp-systemd 0.2.0**
