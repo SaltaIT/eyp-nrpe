@@ -100,10 +100,10 @@ class nrpe::config inherits nrpe {
   }
 
   file { $nrpe::pid_dir:
-    ensure  => 'directory',
-    owner   => $nrpe::username,
-    group   => $nrpe::group,
-    mode    => $nrpe::pid_dir_mode,
+    ensure => 'directory',
+    owner  => $nrpe::username,
+    group  => $nrpe::group,
+    mode   => $nrpe::pid_dir_mode,
   }
 
   file { $nrpe::nrpe_conf_dir:
