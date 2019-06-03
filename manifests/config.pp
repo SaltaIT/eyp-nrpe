@@ -4,6 +4,13 @@ class nrpe::config inherits nrpe {
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
   }
 
+  if($nrpe::nrpe_user_secondary_groups!=undef)
+  {
+    user { $nrpe::username:
+      groups => $nrpe::nrpe_user_secondary_groups,
+    }
+  }
+
   if(defined(Class['::selinux']))
   {
     $current_selinux_mode = $::selinux? {

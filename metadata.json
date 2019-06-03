@@ -1,6 +1,6 @@
 {
   "name": "eyp-nrpe",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "author": "eyp",
   "summary": "NRPE management",
   "license": "Apache-2.0",

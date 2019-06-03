@@ -33,6 +33,7 @@ class nrpe(
             $server_port                     = '5666',
             $username                        = $nrpe::params::username_default,
             $group                           = $nrpe::params::group_default,
+            $nrpe_user_secondary_groups      = undef,
             $nrpe_conf_dir                   = $nrpe::params::nrpe_conf_dir_default,
             $selinux_dir                     = '/usr/local/src/selinux/nrpe',
             $pid_dir                         = $nrpe::params::pid_dir_default,

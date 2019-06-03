@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.20
+
+* Added variable for secondary NRPE groups
+
 ## 0.1.19
 
 * Added pid_dir management of ownership and, optionally, file mode
