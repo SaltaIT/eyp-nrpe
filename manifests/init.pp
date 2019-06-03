@@ -36,6 +36,7 @@ class nrpe(
             $nrpe_conf_dir                   = $nrpe::params::nrpe_conf_dir_default,
             $selinux_dir                     = '/usr/local/src/selinux/nrpe',
             $pid_dir                         = $nrpe::params::pid_dir_default,
+            $pid_dir_mode                    = undef,
           ) inherits nrpe::params{
 
   $pid_file = "${pid_dir}/nrpe.pid"

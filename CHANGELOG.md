@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.19
+
+* Added pid_dir management of ownership and, optionally, file mode
+
 ## 0.1.18
 
 * Added RHEL 8 support
