@@ -126,10 +126,10 @@ class nrpe::config inherits nrpe {
   if($nrpe::nagios_home!=undef)
   {
     file { $nrpe::nagios_home:
-      ensure  => 'directory',
-      owner   => $nrpe::nagios_home_user,
-      group   => $nrpe::nagios_home_group,
-      mode    => $nrpe::nagios_home_mode,
+      ensure => 'directory',
+      owner  => $nrpe::nagios_home_user,
+      group  => $nrpe::nagios_home_group,
+      mode   => $nrpe::nagios_home_mode,
     }
   }
 
