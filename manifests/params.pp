@@ -7,6 +7,10 @@ class nrpe::params {
   {
     'redhat':
     {
+      $nagios_home_default='/var/spool/nagios'
+      $nagios_home_mode_default='0755'
+      $nagios_home_user_default='nagios'
+      $nagios_home_group_default='nagios'
       $pid_dir_default='/var/run/nrpe'
       $service_name='nrpe'
       $include_epel=true
@@ -29,6 +33,10 @@ class nrpe::params {
     }
     'Debian':
     {
+      $nagios_home_default='/var/lib/nagios'
+      $nagios_home_mode_default='0755'
+      $nagios_home_user_default='nagios'
+      $nagios_home_group_default='nagios'
       $pid_dir_default='/var/run/nagios'
       $service_name='nagios-nrpe-server'
       $include_epel=false
@@ -67,6 +75,11 @@ class nrpe::params {
     }
     'Suse':
     {
+      $nagios_home_default=undef
+      $nagios_home_mode_default='0755'
+      $nagios_home_user_default='nagios'
+      $nagios_home_group_default='nagios'
+
       $service_name='nrpe'
       $include_epel=false
 

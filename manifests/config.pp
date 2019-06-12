@@ -123,4 +123,14 @@ class nrpe::config inherits nrpe {
     require => Exec["mkdir p nrpe ${nrpe::nrpe_conf_dir}"],
   }
 
+  if($nrpe::nagios_home!=undef)
+  {
+    file { $nrpe::nagios_home:
+      ensure  => 'directory',
+      owner   => $nrpe::nagios_home_user,
+      group   => $nrpe::nagios_home_group,
+      mode    => $nrpe::nagios_home_mode,
+    }
+  }
+
 }

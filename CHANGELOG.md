@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.21
+
+* nagios home management
+
 ## 0.1.20
 
 * Added variable for secondary NRPE groups

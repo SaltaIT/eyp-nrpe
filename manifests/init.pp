@@ -38,6 +38,10 @@ class nrpe(
             $selinux_dir                     = '/usr/local/src/selinux/nrpe',
             $pid_dir                         = $nrpe::params::pid_dir_default,
             $pid_dir_mode                    = undef,
+            $nagios_home                     = $nrpe::params::nagios_home_default,
+            $nagios_home_mode                = $nrpe::params::nagios_home_mode_default,
+            $nagios_home_user                = $nrpe::params::nagios_home_user_default,
+            $nagios_home_group               = $nrpe::params::nagios_home_group_default,
           ) inherits nrpe::params{
 
   $pid_file = "${pid_dir}/nrpe.pid"
