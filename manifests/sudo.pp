@@ -1,5 +1,5 @@
 define nrpe::sudo (
-                    $command,
+                    $command = $name,
                   ) {
   include ::sudoers
   include ::nrpe
