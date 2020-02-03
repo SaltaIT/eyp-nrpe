@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.22
+
+* added sudo definitions for NRPE
+
 ## 0.1.21
 
 * nagios home management
