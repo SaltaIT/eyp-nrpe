@@ -1,5 +1,6 @@
 define nrpe::sudo (
-                    $command = $name,
+                    $command,
+                    $description = $name,
                   ) {
   include ::sudoers
   include ::nrpe
@@ -7,7 +8,7 @@ define nrpe::sudo (
   sudoers::sudo { "nrpe::sudo for ${command}":
     username        => $::nrpe::username,
     withoutpassword => true,
-    description     => 'sudo for NRPE',
+    description     => $description,
     command         => $command,
   }
 }
