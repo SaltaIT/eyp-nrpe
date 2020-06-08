@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.23
+
+* added support for **Ubuntu 20.04** and **Debian 8, 9 and 10**
+
 ## 0.1.22
 
 * added sudo definitions for NRPE

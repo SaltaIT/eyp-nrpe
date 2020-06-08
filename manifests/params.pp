@@ -66,10 +66,32 @@ class nrpe::params {
             {
               $ppa_dont_blame=false
             }
+            /^20.*$/:
+            {
+              $ppa_dont_blame=false
+            }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
           }
         }
-        'Debian': { fail('Unsupported')  }
+        'Debian':
+        {
+          case $::operatingsystemrelease
+          {
+            /^8.*$/:
+            {
+              $ppa_dont_blame=false
+            }
+            /^9.*$/:
+            {
+              $ppa_dont_blame=true
+            }
+            /^10.*$/:
+            {
+              $ppa_dont_blame=false
+            }
+            default: { fail("Unsupported Debian version! - ${::operatingsystemrelease}")  }
+          }
+        }
         default: { fail('Unsupported Debian flavour!')  }
       }
     }
