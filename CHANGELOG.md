@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.23
+
+* added support for eyp-systemd 0.3
+
 ## 0.1.22
 
 * added sudo definitions for NRPE
