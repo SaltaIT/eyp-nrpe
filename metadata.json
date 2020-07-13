@@ -1,6 +1,6 @@
 {
   "name": "eyp-nrpe",
-  "version": "0.1.23",
+  "version": "0.1.24",
   "author": "eyp",
   "summary": "NRPE management",
   "license": "Apache-2.0",
@@ -39,7 +39,15 @@
     },
     {
       "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [ "14.04", "16.04", "18.04" ]
+      "operatingsystemrelease": [ "14.04", "16.04", "18.04", "20.04" ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [ "8", "9", "10" ]
+    },
+    {
+      "operatingsystem": "Raspbian",
+      "operatingsystemrelease": [ "10" ]
     },
     {
       "operatingsystem": "SLES",

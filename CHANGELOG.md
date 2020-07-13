@@ -1,8 +1,12 @@
 # CHANGELOG
 
-## 0.1.23
+## 0.1.24
 
 * added support for eyp-systemd 0.3
+
+## 0.1.23
+
+* added support for **Ubuntu 20.04** and **Debian 8, 9 and 10**
 
 ## 0.1.22
 
