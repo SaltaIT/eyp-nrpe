@@ -1,6 +1,6 @@
 {
   "name": "eyp-nrpe",
-  "version": "0.1.24",
+  "version": "1.0.24",
   "author": "Jordi Prats",
   "summary": "NRPE management",
   "license": "Apache-2.0",
